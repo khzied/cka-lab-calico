@@ -1,5 +1,5 @@
-Certified Kubernetes Administrator (CKA) Lab 
-============================================
+Certified Kubernetes Administrator (CKA) Lab with Calico 
+========================================================
 
 Vagrant setup which bootstraps a Kubernetes cluster using Kubeadm, deploys Helm,  NFS server for persistent Volumes, Metrics Server  and  Nginx ingress controller.
 
