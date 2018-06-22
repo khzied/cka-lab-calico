@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: transfer-sh
+  name: transfer-sh
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: transfer-sh
+  type: NodePort
+status:
+  loadBalancer: {}
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: transfer-sh-claim
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: transfer-sh
+  name: transfer-sh
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      run: transfer-sh
+  template:
+    metadata:
+      labels:
+        run: transfer-sh
+    spec:
+      containers:
+      - image: dutchcoders/transfer.sh
+        name: transfer-sh
+        args:
+        - --provider
+        - local
+        - --basedir
+        - "/tmp"
+        ports:
+        - containerPort: 8080
+        resources: {}
+        volumeMounts:
+        - mountPath: /tmp
+          name: data-vol
+      volumes:
+      - name: data-vol
+        persistentVolumeClaim:
+          claimName: transfer-sh-claim
