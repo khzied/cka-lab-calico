@@ -1,10 +1,6 @@
 #!/bin/bash
 set -x
 
-sudo yum -y install make git
-sudo easy_install pip
-sudo pip install docker-py
-
 sudo kubeadm init --config /vagrant/kube/kubeadm-config.yml
 
 mkdir -p $HOME/.kube
