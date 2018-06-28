@@ -1,5 +1,6 @@
-apiVersion: kubeadm.k8s.io/v1alpha1
+apiVersion: kubeadm.k8s.io/v1alpha2
 kind: MasterConfiguration
+kubernetesVersion: v1.11.0
 api:
   advertiseAddress: 172.16.33.20
 apiServerExtraArgs:
