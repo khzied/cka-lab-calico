@@ -1,5 +1,5 @@
-Certified Kubernetes Administrator (CKA) Lab with Calico 
-========================================================
+Certified Kubernetes Administrator (CKA) Lab (K8s v1.11.0) with Calico 
+======================================================================
 
 Vagrant setup which bootstraps a Kubernetes cluster using Kubeadm, deploys Helm,  NFS server for persistent Volumes, Metrics Server  and  Nginx ingress controller.
 
@@ -48,9 +48,9 @@ Last login: Mon Jun 11 10:05:52 2018 from 10.0.2.2
 
 [vagrant@master ~]$ kubectl get nodes
 NAME      STATUS    ROLES     AGE       VERSION
-master    Ready     master    32m       v1.10.5
-node1     Ready     <none>    27m       v1.10.5
-node2     Ready     <none>    27m       v1.10.5
+master    Ready     master    32m       v1.11.0
+node1     Ready     <none>    27m       v1.11.0
+node2     Ready     <none>    27m       v1.11.0
 ```
 
 Shutdown
