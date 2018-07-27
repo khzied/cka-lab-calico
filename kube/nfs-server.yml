@@ -62,6 +62,7 @@ spec:
     storage: 50Gi
   accessModes:
     - ReadWriteMany
+    - ReadWriteOnce
   nfs:
     server: 10.102.50.6
     path: "/"
